@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+    <title>Empleados</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="/">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/accesorios">Accesorios</a>
+            <a class="nav-item nav-link" href="/caracteristicas">Caracteristicas</a> 
+            <a class="nav-item nav-link" href="/equipo">Equipo</a>
+            <a class="nav-item nav-link" href="/fabricantes">Fabricantes</a>
+            <a class="nav-item nav-link" href="/marca">Marca</a>
+            <a class="nav-item nav-link" href="/modelos">Modelos</a> 
+            <a class="nav-item nav-link" href="/stock">Stock</a>
+            <a class="nav-item nav-link" href="/ventas">Ventas</a>
+            <a class="nav-item nav-link" href="/clientes">Clientes</a>
+            <a class="nav-item nav-link" href="/empleados">Empleados</a>
+            <a class="nav-item nav-link" href="/proveedores">Proveedores</a> 
+            <a class="nav-item nav-link" href="/detalle_compra">Detalle de compra</a>
+            <a class="nav-item nav-link" href="/orden_compra">Orden de compra</a>
+        </div>
+    </nav>
+    <h1>Listado de Empleados</h1>
+    <a href="{{ url_for('nuevo_empleado') }}">Añadir Nuevo Empleado</a>
+    <ul>
+        {% for empleado in empleados %}
+            <li>
+                {{ empleado.nombre }} - {{ empleado.email }}
+                <a href="{{ url_for('editar_empleado', id=empleado.id) }}">Editar</a>
+                <form action="{{ url_for('eliminar_empleado', id=empleado.id) }}" method="POST" style="display:inline;">
+                    <button type="submit">Eliminar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

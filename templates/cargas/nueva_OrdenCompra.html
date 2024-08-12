@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Nueva Orden de Pago</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="/">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/ordenes_pago">Órdenes de Pago</a>
+            <a class="nav-item nav-link" href="/clientes">Clientes</a>
+            <a class="nav-item nav-link" href="/ventas">Ventas</a>
+            <a class="nav-item nav-link" href="/productos">Productos</a>
+            <a class="nav-item nav-link" href="/formas_pago">Formas de Pago</a>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>Nueva Orden de Pago</h1>
+        <form action="{{ url_for('nueva_orden_pago') }}" method="post">
+            <div class="form-group">
+                <label for="cliente_id">Cliente:</label>
+                <select id="cliente_id" name="cliente_id" class="form-control" required>
+                    <!-- Aquí se insertan las opciones de clientes existentes -->
+                </select>
+                <a href="{{ url_for('nuevo_cliente') }}" class="btn btn-secondary mt-2">Nuevo Cliente</a>
+            </div>
+            
+            <div class="form-group">
+                <label for="venta_id">Venta:</label>
+                <select id="venta_id" name="venta_id" class="form-control" required>
+                    <!-- Aquí se insertan las opciones de ventas existentes -->
+                </select>
+                <a href="{{ url_for('nueva_venta') }}" class="btn btn-secondary mt-2">Nueva Venta</a>
+            </div>
+
+            <div class="form-group">
+                <label for="producto_id">Producto:</label>
+                <select id="producto_id" name="producto_id" class="form-control" required>
+                    <!-- Aquí se insertan las opciones de productos existentes -->
+                </select>
+                <a href="{{ url_for('nuevo_producto') }}" class="btn btn-secondary mt-2">Nuevo Producto</a>
+            </div>
+
+            <div class="form-group">
+                <label for="forma_pago_id">Forma de Pago:</label>
+                <select id="forma_pago_id" name="forma_pago_id" class="form-control" required>
+                    <!-- Aquí se insertan las opciones de formas de pago existentes -->
+                </select>
+                <a href="{{ url_for('nueva_forma_pago') }}" class="btn btn-secondary mt-2">Nueva Forma de Pago</a>
+            </div>
+
+            <div class="form-group">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="precio_unitario">Precio Unitario:</label>
+                <input type="number" id="precio_unitario" name="precio_unitario" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="precio_total">Precio Total:</label>
+                <input type="number" id="precio_total" name="precio_total" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+

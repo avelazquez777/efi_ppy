@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Nuevo Accesorio</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="/">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/accesorios">Accesorios</a>
+            <a class="nav-item nav-link" href="/caracteristicas">Caracteristicas</a> 
+            <a class="nav-item nav-link" href="/equipo">Equipo</a>
+            <a class="nav-item nav-link" href="/fabricantes">Fabricantes</a>
+            <a class="nav-item nav-link" href="/marca">Marca</a>
+            <a class="nav-item nav-link" href="/modelos">Modelos</a> 
+            <a class="nav-item nav-link" href="/stock">Stock</a>
+            <a class="nav-item nav-link" href="/ventas">Ventas</a>
+            <a class="nav-item nav-link" href="/clientes">Clientes</a>
+            <a class="nav-item nav-link" href="/empleados">Empleados</a>
+            <a class="nav-item nav-link" href="/proveedores">Proveedores</a> 
+            <a class="nav-item nav-link" href="/detalle_compra">Detalle de compra</a>
+            <a class="nav-item nav-link" href="/orden_compra">Orden de compra</a>
+        </div>
+    </nav>
+
+    <h1>Nuevo Accesorio</h1>
+    <form action="{{ url_for('nuevo_accesorio') }}" method="post">
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="marca">Marca:</label>
+            <select id="marca" name="marca_id" class="form-control" required>
+                {% for marca in marcas %}
+                    <option value="{{ marca.id }}">{{ marca.nombre }}</option>
+                {% endfor %}
+            </select>
+            <a href="{{ url_for('nueva_marca') }}" class="btn btn-link">Crear nueva marca</a>
+        </div>
+        <div class="form-group">
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo_id" class="form-control" required>
+                {% for tipo in tipos %}
+                    <option value="{{ tipo.id }}">{{ tipo.nombre }}</option>
+                {% endfor %}
+            </select>
+            <a href="{{ url_for('nuevo_tipo') }}" class="btn btn-link">Crear nuevo tipo</a>
+        </div>
+        <div class="form-group">
+            <label for="condicion">Condición:</label>
+            <select id="condicion" name="condicion_id" class="form-control" required>
+                {% for condicion in condiciones %}
+                    <option value="{{ condicion.id }}">{{ condicion.nombre }}</option>
+                {% endfor %}
+            </select>
+            <a href="{{ url_for('nueva_condicion') }}" class="btn btn-link">Crear nueva condición</a>
+        </div>
+        <div class="form-group">
+            <label for="compatibilidad">Compatibilidad:</label>
+            <select id="compatibilidad" name="compatibilidad_id" class="form-control" required>
+                {% for compatibilidad in compatibilidades %}
+                    <option value="{{ compatibilidad.id }}">{{ compatibilidad.nombre }}</option>
+                {% endfor %}
+            </select>
+            <a href="{{ url_for('nueva_compatibilidad') }}" class="btn btn-link">Crear nueva compatibilidad</a>
+        </div>
+        <div class="form-group">
+            <label for="caracteristica">Característica:</label>
+            <select id="caracteristica" name="caracteristica_id" class="form-control" required>
+                {% for caracteristica in caracteristicas %}
+                    <option value="{{ caracteristica.id }}">{{ caracteristica.nombre }}</option>
+                {% endfor %}
+            </select>
+            <a href="{{ url_for('nueva_caracteristica') }}" class="btn btn-link">Crear nueva característica</a>
+        </div>
+        <div class="form-group">
+            <label for="garantia">Garantía:</label>
+            <select id="garantia" name="garantia_id" class="form-control" required>
+                {% for garantia in garantias %}
+                    <option value="{{ garantia.id }}">{{ garantia.nombre }}</option>
+                {% endfor %}
+            </select>
+            <a href="{{ url_for('nueva_garantia') }}" class="btn btn-link">Crear nueva garantía</a>
+        </div>
+        <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input type="text" id="precio" name="precio" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+

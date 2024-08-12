@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+    <title>Nuevo Proveedor</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="/">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/accesorios">Accesorios</a>
+            <a class="nav-item nav-link" href="/caracteristicas">Características</a> 
+            <a class="nav-item nav-link" href="/equipo">Equipo</a>
+            <a class="nav-item nav-link" href="/fabricantes">Fabricantes</a>
+            <a class="nav-item nav-link" href="/marca">Marca</a>
+            <a class="nav-item nav-link" href="/modelos">Modelos</a> 
+            <a class="nav-item nav-link" href="/stock">Stock</a>
+            <a class="nav-item nav-link" href="/ventas">Ventas</a>
+            <a class="nav-item nav-link" href="/clientes">Clientes</a>
+            <a class="nav-item nav-link" href="/empleados">Empleados</a>
+            <a class="nav-item nav-link" href="/proveedores">Proveedores</a> 
+            <a class="nav-item nav-link" href="/detalle_compra">Detalle de compra</a>
+            <a class="nav-item nav-link" href="/orden_compra">Orden de compra</a>
+        </div>
+    </nav>
+    <h1>Nuevo Proveedor</h1>
+    <form action="{{ url_for('nuevo_proveedor') }}" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="pais_id">País:</label>
+        <select id="pais_id" name="pais_id" required>
+            {% for pais in paises %}
+                <option value="{{ pais.id }}">{{ pais.nombre }}</option>
+            {% endfor %}
+        </select>
+        <a href="{{ url_for('nuevo_pais') }}">Crear nuevo país</a>
+        <br>
+        <label for="num_contacto">Número de Contacto:</label>
+        <input type="text" id="num_contacto" name="num_contacto" required>
+        <br>
+        <label for="sede_principal">Sede Principal:</label>
+        <input type="text" id="sede_principal" name="sede_principal" required>
+        <br>
+        <label for="pagina_web">Página Web:</label>
+        <input type="text" id="pagina_web" name="pagina_web" required>
+        <br>
+        <label for="descripcion">Descripción:</label>
+        <input type="text" id="descripcion" name="descripcion" required>
+        <br>
+        <button type="submit">Guardar</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
